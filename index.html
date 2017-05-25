@@ -1,0 +1,110 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+
+    <script src="https://use.fontawesome.com/b7555dbcbf.js"></script>
+    <link href="/style1.css" rel="stylesheet" />
+
+    <link href="/jQuery/css/ui-lightness/jquery-ui-1.10.0.custom.css" rel="stylesheet" />
+    <script src="https://www.gstatic.com/firebasejs/3.0.3/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyBzTY0YXeCQAs-k57f1xEeN3OsGr6BVIOw",
+            databaseURL: "https://kaist-map.firebaseio.com/"
+        };
+        firebase.initializeApp(config);
+    </script>
+
+
+    <script src="https://www.gstatic.com/firebasejs/4.0.0/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyAfY5cKJFY80y8f5OSz2j9uz-5UGA66mnk",
+            authDomain: "kaistmap-2ffaf.firebaseapp.com",
+            databaseURL: "https://kaistmap-2ffaf.firebaseio.com",
+            projectId: "kaistmap-2ffaf",
+            storageBucket: "kaistmap-2ffaf.appspot.com",
+            messagingSenderId: "590383753660"
+        };
+        firebase.initializeApp(config);
+    </script>
+</head>
+<body>
+
+<div style = " top: 100px; position: absolute;">
+    <div id = 'nupjuk'><img style = "cursor: pointer;" src="/images/nupjuk.png"
+                            onclick="helpme(this)"> </img></div>
+</div>
+<div id="talk"> </div>
+<div style = " top: 240px;left:10px; position: absolute;">
+    <div id = "clickme"><b> Click me!</b></div>
+    <div id = "helpText" style = "display: none"><b>1. Move your curser to the building!</br>2. Can I enter the building?</br> &nbsp&nbsp&nbsp&nbsp&nbsp Green: O / Red: X</br>3. Click "Recommended path"</div>
+    </b></div>
+
+
+<div class = "boxes" id = "E11" onmouseover = "popInformation(this)" onmouseout = "deleteInformation(this)" style = "top: 605px; left: 785px; width: 105px;
+    height: 45px;"></div>
+<div class = "boxes" id = "E3" onmouseover = "popInformation(this)" onmouseout = "deleteInformation(this)" style = "top: 745px; left: 958px; width: 55px;
+    height: 50px;"></div>
+<div class = "boxes0" id = "E6" onmouseover = "popInformation(this)" onmouseout = "deleteInformation(this)" style = "top: 620px; left: 930px; width: 200px;
+    height: 110px;"></div>
+<div class = "boxes0" id = "N1" onmouseover = "popInformation(this)" onmouseout = "deleteInformation(this)" style = "top: 445px; left: 1250px; width: 130px;
+    height: 50px;"></div>
+<div class = "boxes" id = "N11" onmouseover = "popInformation(this)" onmouseout = "deleteInformation(this)" style = "top: 410px; left: 615px; width: 65px;
+    height: 35px;"></div>
+<div class = "boxes" id = "N13" onmouseover = "popInformation(this)" onmouseout = "deleteInformation(this)" style = "top: 440px; left: 675px; width: 55px;
+    height: 50px;"></div>
+<div class = "boxes" id = "N13-1" onmouseover = "popInformation(this)" onmouseout = "deleteInformation(this)" style = "top: 440px; left: 730px; width: 70px;
+    height: 50px;"></div>
+<div class = "boxes" id = "W2" onmouseover = "popInformation(this)" onmouseout = "deleteInformation(this)" style = "top: 750px; left: 455px; width: 140px;
+    height: 50px;"></div>
+<div class = "boxes0" id = "W8" onmouseover = "popInformation(this)" onmouseout = "deleteInformation(this)" style = "top: 600px; left: 520px; width: 70px;
+    height: 50px;"></div>
+<div class = "boxes" id = "W9" onmouseover = "popInformation(this)" onmouseout = "deleteInformation(this)" style = "top: 530px; left: 255px; width: 240px;
+    height: 120px;"></div>
+
+<div class = "boxes0" id = "north" onmouseover = "popAccessibilty(this)" onmouseout = "deleteAccessibilty(this)" style = "top: 330px; left: 835px; width: 380px;
+    height: 220px;"></div>
+<div class = "boxes0" id = "N19" onmouseover = "popAccessibilty(this)" onmouseout = "deleteAccessibilty(this)" style = "top: 370px; left: 360px; width: 230px;
+    height: 60px;"></div>
+<div class = "boxes0" id = "N21" onmouseover = "popAccessibilty(this)" onmouseout = "deleteAccessibilty(this)" style = "top: 270px; left: 592px; width: 130px;
+    height: 140px;"></div>
+
+
+
+<div id = 'backimg'><img src="/images/map.png"
+                         style = "width:1600px;
+height:1000px;" >  </img></div>
+<div  style= 'display: none;' class ='path' id = 'blossom'><img src ="/images/blossom.png" id='p2'/></div>
+
+<div style= ' display: none;' class ='path' id = 'pond'><img src = "/images/pond.png"  id='p1' /></div>
+
+
+
+<div id='myt' >
+    <table id ='mytable' style = 'text-align: left; border-collapse: collapse; 'border>
+        <tr id='showpath'>
+            <th class="row0"><h2>Recommended Path</h2></th> <th class="row0"><i class="fa fa-caret-down" aria-hidden="true" ></i></th>
+        </tr>
+        <tr style="display: none">
+            <td class='row1' colspan="2"id='duck'><h3>Duck's Pond</h3></td>
+
+        </tr>
+        <tr style="display: none">
+            <td colspan="2"   class='row1'id='cherry'><h3>Cherry Blossom</h3></td>
+
+        </tr>
+    </table>
+</div>
+
+<ul class='horizontal'><li><a><h1>Kaist Campus Map</h1></a></li>
+</ul>
+
+<script src="/jQuery/js/jquery-1.9.0.min.js"></script>
+<script src="/jQuery/js/jquery-ui-1.10.0.custom.min.js"></script>
+<script src="/script.js"></script>
+
+</body>
+</html>
