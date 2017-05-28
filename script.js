@@ -144,17 +144,17 @@ function seeAll(){
     for(var i = 0; i < x.length; i++){
     x[i].style.opacity = 0.5;
   }
-  for(var i = 0; i < y.length; i++){
-    y[i].style.opacity = 0.5;
+  for(var j = 0; j < y.length; j++){
+    y[j].style.opacity = 0.5;
   }
     state1 = 1;
   }
   else if(state1 == 1){
-    for(var i = 0; i < x.length; i++){
-    x[i].style.opacity = 0.0;
+    for(var k = 0; k < x.length; k++){
+    x[k].style.opacity = 0.0;
   }
-  for(var i = 0; i < y.length; i++){
-    y[i].style.opacity = 0.0;
+  for(var l = 0; l < y.length; l++){
+    y[l].style.opacity = 0.0;
   }
     state1 = 0;
   }
