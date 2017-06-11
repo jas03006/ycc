@@ -9,6 +9,7 @@ var showpath = document.getElementById("showpath");
 var cherry = document.getElementById("cherry");
 var duck = document.getElementById("duck");
 var state=0;
+var fstate = 0;
 showpath.onclick = function(){
   for(var i=1; i<mytable.rows.length; i++){   
         if(mytable.rows[i].style.display == "")
@@ -43,22 +44,7 @@ cherry.onclick = function(){
    duck.style.backgroundColor = 'Gainsboro';
 }
 
-cherry.onmouseover = function(){
-  if(this.style.backgroundColor == "Gainsboro")
-  this.style.backgroundColor = "DarkGray";
-}
-cherry.onmouseout = function(){
-  if(this.style.backgroundColor == "DarkGray")
-  this.style.backgroundColor = "Gainsboro";
-}
-duck.onmouseover = function(){
-  if(this.style.backgroundColor == "Gainsboro")
-  this.style.backgroundColor = "DarkGray";
-}
-duck.onmouseout = function(){
-  if(this.style.backgroundColor == "DarkGray")
-  this.style.backgroundColor = "Gainsboro";
-}
+
 var info = firebase.database().ref("info");
 
 
@@ -160,6 +146,88 @@ function seeAll(){
   
   
 }
+
+var restB = 
+ document.getElementById("restB");
+var cafeB = 
+ document.getElementById("cafeB");
+var busB = 
+ document.getElementById("busB");
+var rest = document.getElementsByClassName("rest");
+var bus = document.getElementsByClassName("bus");
+var cafe = document.getElementsByClassName("cafe");
+
+showicon.onclick = function(){
+  for(var i=1; i<myfilter.rows.length; i++){   
+        if(myfilter.rows[i].style.display == "")
+               myfilter.rows[i].style.display = "none";
+      else
+          myfilter.rows[i].style.display = "";
+   
+            }
+  if(fstate == 1){
+  showicon.innerHTML = '<th class="row0"><h2>Filter</th> <th class="row0" id="iic"><i class="fa fa-caret-down" aria-hidden="true" ></i></th>';
+     for(var i = 0; i<rest.length;i++){
+    rest[i].style.display = "none";
+  }
+  for(var i = 0; i<cafe.length;i++){
+    cafe[i].style.display = "none";
+  }
+  for(var i = 0; i<bus.length;i++){
+    bus[i].style.display = "none";
+  }
+    restB.style.backgroundColor = 'Gainsboro';
+    cafeB.style.backgroundColor = 'Gainsboro';
+    busB.style.backgroundColor = 'Gainsboro';
+	fstate = 0;
+}else {
+	fstate = 1;
+  showicon.innerHTML = '<th class="row0"><h2>Filter</th> <th class="row0" id="iic"><i class="fa fa-times" aria-hidden="true" style="color:red"></i></th>';
+}
+}
+
+
+
+function iconfilter(a,b,c){
+  for(var i = 0; i<a.length;i++){
+    a[i].style.display = "";
+  }
+  for(var i = 0; i<b.length;i++){
+    b[i].style.display = "none";
+  }
+  for(var i = 0; i<c.length;i++){
+    c[i].style.display = "none";
+  }
+}
+restB.onclick = function(){
+  iconfilter(rest,cafe,bus);
+  this.style.backgroundColor = 'DarkGray';
+   cafeB.style.backgroundColor = 'Gainsboro';
+  busB.style.backgroundColor = 'Gainsboro';
+}
+cafeB.onclick = function(){
+  iconfilter(cafe,bus,rest);
+  this.style.backgroundColor = 'DarkGray';
+   restB.style.backgroundColor = 'Gainsboro';
+  busB.style.backgroundColor = 'Gainsboro';
+}
+busB.onclick = function(){
+  iconfilter(bus,rest,cafe);
+  this.style.backgroundColor = 'DarkGray';
+   cafeB.style.backgroundColor = 'Gainsboro';
+  restB.style.backgroundColor = 'Gainsboro';
+}
+
+
+function changeBC1(ele){
+  if(ele.style.backgroundColor == "Gainsboro")
+  ele.style.backgroundColor = "DarkGray";
+}
+function changeBC2(ele){
+  if(ele.style.backgroundColor == "DarkGray")
+  ele.style.backgroundColor = "Gainsboro";
+}
+
 
 function popPicture(ele){
   var pic = document.getElementById("picture_" + ele.id);
