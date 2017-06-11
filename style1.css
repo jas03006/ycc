@@ -8,9 +8,9 @@
   padding-top:23px;
   cursor: pointer;
   color:black;
-  border-left : solid;
   border-width:3px;
   border-color: 	RoyalBlue ;
+ right: -550px;
 }
 .path{
   opacity: 0.8;
@@ -39,14 +39,14 @@
   position: absolute;
    opacity: 0.0;
     background-color: #ff0000;
-    z-index: 3;
+    z-index: 11;
     cursor: pointer;
 }
 .boxes{
   position: absolute;
    opacity: 0.0;
     background-color: #00ff00;
-    z-index: 3;
+    z-index: 11;
     cursor: pointer;
 }
 #myt{
@@ -55,19 +55,42 @@
   text-align: center;
   cursor: pointer;
   color:black;
-   border-right : solid;
   border-width:3px;
   border-color: 	RoyalBlue ;
   padding : 200px;
 }
+
+#filter{
+  z-index:11;
+  position:relative;
+  width: 230px;
+  height: 93px;
+  font-size: 25px;
+  text-align: center;
+  padding-top:23px;
+  cursor: pointer;
+  color:black;
+  border-width:3px;
+  border-color: 	RoyalBlue ;
+
+}
 #mytable{
   position: fixed;
   top:20px;
-  left:880px;
+  right: 20px;
   border-top:hidden;
   cursor: pointer;
   border-bottom:hidden;
 }
+#myfilter{
+  position: fixed;
+  top:20px;
+  right: 320px;
+  border-top:hidden;
+  cursor: pointer;
+  border-bottom:hidden;
+}
+
 .row0{
   padding-top:5px;
   padding-left:13px;
@@ -146,6 +169,7 @@ ul.horizontal li a.active{
   z-index:2;
   width : 70px;
   height: 70px;
+
 }
 #cafe1{
     position : absolute;
@@ -187,6 +211,7 @@ ul.horizontal li a.active{
   z-index:2;
   width : 70px;
   height: 70px;
+
 }
 #bus1{
   position : absolute;
@@ -233,6 +258,7 @@ ul.horizontal li a.active{
    z-index:2;
   width : 70px;
   height: 70px;
+
 }
 
 #rest1{
@@ -266,22 +292,6 @@ ul.horizontal li a.active{
     left :730px;
 }
 
-#filter{
-  z-index:11;
-  position:relative;
-  width: 200px;
-  height: 93px;
-  font-size: 25px;
-  text-align: center;
-  padding-top:23px;
-  cursor: pointer;
-  color:black;
-  border-left : solid;
-   border-right : solid;
-  border-width:3px;
-  border-color: 	RoyalBlue ;
-
-}
 
 .picture{
   position: relative;
@@ -290,6 +300,7 @@ ul.horizontal li a.active{
   vertical-align: middle;
   width: 400px;
   height: 270px;
+  z-index:12;
 }
 .building{
    width: 450px;
@@ -299,7 +310,7 @@ ul.horizontal li a.active{
    -moz-border-radius:    10px;
    -webkit-border-radius: 10px;
    border-radius:         10px;
-   z-index: 4;
+z-index:12;
 }
 .building:before {
    content:"";
