@@ -1,5 +1,4 @@
 var myt =  document.getElementById("myt");
-myt.style.position = "absolute";
 var blossom = 
  document.getElementById("blossom");
 var pond = 
@@ -160,4 +159,13 @@ function seeAll(){
   }
   
   
+}
+
+function popPicture(ele){
+  var pic = document.getElementById("picture_" + ele.id);
+  if(pic.style.display == "none"){
+    pic.style.display = "";
+  }
+  else
+    pic.style.display = "none";
 }
