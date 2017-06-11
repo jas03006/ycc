@@ -71,7 +71,20 @@ height:1000px;" >  </img></div>
  
   <ul class='horizontal'><li><a style="  padding-right: 15px;padding-left: 15px;"><h1>Kaist Campus Map</h1></a></li>
     <li><a><div id ='seeAll' onclick = "seeAll()"><b>View Accessibility</b></div></a></li>
-    <li><a><div id ='filter'><b>Filter</b></div></a></li>
+    <li><a><div id ='filter'>
+      
+      <table id ='myfilter' style = 'text-align: left; border-collapse: collapse; 'border>
+       <tr id='showicon'>
+           <th class="row0"><h2>Filter</th> <th class="row0" id="iic"><i class="fa fa-caret-down" aria-hidden="true" ></i></th> </tr>
+       <tr style="display: none">
+           <td class='row1' colspan="2"id='restB'><h3>Restaurant</h3></td> </tr>         
+    <tr style="display: none">
+           <td colspan="2"   class='row1'id='cafeB'><h3>Cafe</h3></td>  </tr>   
+         <tr style="display: none">
+           <td colspan="2"   class='row1'id='busB'><h3>Bus Stop</h3></td>  </tr>   
+    </table>
+      
+      </div></a></li>
      <li><a>
        <div id='myt' >
   <table id ='mytable' style = 'text-align: left; border-collapse: collapse; 'border>
@@ -86,7 +99,6 @@ height:1000px;" >  </img></div>
        
        </a></li>
     </ul>
-
 
  <div ><img src = "cafe.png"class ='cafe' id='cafe1'/></div>
  <div ><img src = "cafe.png"class ='cafe' id='cafe2'/></div>
